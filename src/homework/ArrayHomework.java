@@ -16,13 +16,13 @@ public class ArrayHomework {
             System.out.print(numbers[numbers.length - numbers[i]] + " ");
         }
         System.out.println("------------------");
+        System.out.println("------------------");
         //3
         int[] numbers1 = {1, 2, 3, 4, 4, 6, 7, 8, 9, 10};
         int count = 0;
         for (int i = 0; i < numbers1.length - 1; i++) {
-            if (numbers1[i] == numbers1[i+1])
-                    count++;
-
+            if (numbers1[i] == numbers1[i + 1])
+                count++;
         }
         System.out.println(count + "  ");
 
@@ -32,7 +32,7 @@ public class ArrayHomework {
         int vowelCount = 0;
         char[] vowel = {'ա', 'ե', 'է', 'ը', 'ի', 'օ'};
         for (int i = 0; i < chars.length; i++) {
-            for (int j = 0; j <vowel.length ; j++) {
+            for (int j = 0; j < vowel.length; j++) {
                 if (chars[i] == vowel[j])
                     vowelCount++;
             }
