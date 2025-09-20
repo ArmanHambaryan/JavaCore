@@ -21,10 +21,14 @@ public class ArrayHomework {
         int[] numbers1 = {1, 2, 3, 4, 4, 6, 7, 8, 9, 10};
         int count = 0;
         for (int i = 0; i < numbers1.length - 1; i++) {
-            if (numbers1[i] == numbers1[i + 1])
-                count++;
+            for (int j = 1 + i; j < numbers1.length; j++) {
+                if (numbers1[i] == numbers1[j])
+                    count++;
+            }
+
         }
         System.out.println(count + "  ");
+
 
         System.out.println("------------------");
         //4
