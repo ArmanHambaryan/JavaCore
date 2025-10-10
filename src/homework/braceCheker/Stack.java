@@ -17,6 +17,7 @@ public class Stack {
         array[++size] = value;
     }
 
+
     public char pop() {
         if (isEmpty()) {
             return '\0';

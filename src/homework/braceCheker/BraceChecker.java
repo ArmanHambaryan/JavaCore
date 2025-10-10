@@ -38,6 +38,7 @@ public class BraceChecker {
                     }
                     break;
             }
+
         }
 
         while (!charStack.isEmpty()) {
