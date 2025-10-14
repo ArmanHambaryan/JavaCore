@@ -38,11 +38,18 @@ class BoxWeight extends Box {
     double weight;
 
     BoxWeight(double w, double h, double d, double m) {
-        width = w;
-        height = h;
-        depth = d;
+        super(w, h, d);
         weight = m;
     }
+
+    BoxWeight(BoxWeight ob) {
+        super(ob);
+        weight = ob.weight;
+    }
+
+    BoxWeight() {
+    }
+
 
 //    static class DemoBoxWeight {
 //        public static void main(String[] args) {
@@ -65,17 +72,8 @@ class BoxWeight extends Box {
 
 }
 
-class ColorBox extends Box {
-    int color;
 
-    ColorBox(double w, double h, double d, int c){
-        width = w;
-        height = h;
-        depth = d;
-        color = c;
 
-    }
 
-}
 
 
