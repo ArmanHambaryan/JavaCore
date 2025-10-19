@@ -2,21 +2,16 @@ package lessons.library;
 
 import java.util.Scanner;
 
-public class LibraryDemo {
+public class LibraryDemo implements Commands {
     private static Scanner scanner = new Scanner(System.in);
     private static BookStorage bookStorage = new BookStorage();
 
-    private static final String EXIT = "0";
-    private static final String ADD_BOOK = "1";
-    private static final String PRINT_ALL_BOOKS = "2";
-    private static final String SEARCH_BOOK_BY_TITLE = "3";
-    private static final String PRINT_EXPENSIVE_BOOK = "4";
 
     public static void main(String[] args) {
 
         boolean isRun = true;
         while (isRun) {
-            printCommands();
+            Commands.printCommands();
             String command = scanner.nextLine();
             switch (command) {
                 case EXIT:
@@ -62,13 +57,5 @@ public class LibraryDemo {
         System.out.println("Book added successfully");
     }
 
-    public static void printCommands() {
-        System.out.println("Plase input " + EXIT + " for EXIT");
-        System.out.println("Plase input " + ADD_BOOK + " for ADD BOOK");
-        System.out.println("Plase input " + PRINT_ALL_BOOKS + " for PRINT ALL BOOKS");
-        System.out.println("Plase input " + SEARCH_BOOK_BY_TITLE + " for SEARCH BOOK BY TITLE");
-        System.out.println("Plase input " + PRINT_EXPENSIVE_BOOK + " for PRINT EXPENSIVE BOOK");
-
-    }
 
 }
