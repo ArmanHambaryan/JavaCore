@@ -27,8 +27,20 @@ public class BookStorage {
 
     public void search(String keyword) {
         for (int i = 0; i < size; i++) {
-            if (books[i].getTitle().toLowerCase().contains(keyword));
+            if (books[i].getTitle().toLowerCase().contains(keyword)) ;
             System.out.println(books[i]);
         }
+    }
+
+    public Book getBookByMaxPrice() {
+        double price = 0;
+        int maxIndex = -1;
+        for (int i = 0; i < size; i++) {
+            if (books[i].getPrice() > price) {
+                price = books[i].getPrice();
+                maxIndex = i;
+            }
+        }
+        return books[maxIndex];
     }
 }

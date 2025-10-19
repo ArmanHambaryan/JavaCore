@@ -3,40 +3,41 @@ package lessons.library;
 import java.util.Scanner;
 
 public class LibraryDemo {
+    private static Scanner scanner = new Scanner(System.in);
+    private static BookStorage bookStorage = new BookStorage();
+
+    private static final String EXIT = "0";
+    private static final String ADD_BOOK = "1";
+    private static final String PRINT_ALL_BOOKS = "2";
+    private static final String SEARCH_BOOK_BY_TITLE = "3";
+    private static final String PRINT_EXPENSIVE_BOOK = "4";
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        BookStorage bookStorage = new BookStorage();
+
         boolean isRun = true;
         while (isRun) {
-            System.out.println("Plase input 0 for EXIT");
-            System.out.println("Plase input 1 for ADD BOOK");
-            System.out.println("Plase input 2 for PRINT ALL BOOKS");
-            System.out.println("Plase input 3 for SEARCH BOOK BY TITLE");
+            printCommands();
             String command = scanner.nextLine();
             switch (command) {
-                case "0":
+                case EXIT:
                     isRun = false;
                     break;
-                case "1":
-                    System.out.println("Please input book`s title");
-                    String booktitle = scanner.nextLine();
-                    System.out.println("Please input book`s authorName");
-                    String authorName = scanner.nextLine();
-                    System.out.println("Please input book`s price");
-                    double price = Double.parseDouble(scanner.nextLine());
-                    Book book = new Book(price, authorName, booktitle);
-                    bookStorage.add(book);
-                    System.out.println("Book added successfully");
+                case ADD_BOOK:
+                    adBook();
                     break;
-                case "2":
+                case PRINT_ALL_BOOKS:
                     bookStorage.print();
                     break;
-                case "3":
+                case SEARCH_BOOK_BY_TITLE:
                     System.out.println("Please input keyword");
                     String keyword = scanner.nextLine();
                     bookStorage.search(keyword);
                     break;
-                    
+                case PRINT_EXPENSIVE_BOOK:
+                    System.out.println(bookStorage.getBookByMaxPrice());
+                    break;
+                default:
+                    System.err.println("Wrong command! try again");
 
 
             }
@@ -44,4 +45,30 @@ public class LibraryDemo {
 
         }
     }
+
+    private static void adBook() {
+        System.out.println("Please input book`s title");
+        String booktitle = scanner.nextLine();
+        System.out.println("Please input book`s authorName");
+        String authorName = scanner.nextLine();
+        System.out.println("Please input book`s price");
+        double price = Double.parseDouble(scanner.nextLine());
+//                  Book book = new Book(price, authorName, booktitle);
+        Book book = new Book();
+        book.setTitle(booktitle);
+        book.setPrice(price);
+        book.setAuthorName(authorName);
+        bookStorage.add(book);
+        System.out.println("Book added successfully");
+    }
+
+    public static void printCommands() {
+        System.out.println("Plase input " + EXIT + " for EXIT");
+        System.out.println("Plase input " + ADD_BOOK + " for ADD BOOK");
+        System.out.println("Plase input " + PRINT_ALL_BOOKS + " for PRINT ALL BOOKS");
+        System.out.println("Plase input " + SEARCH_BOOK_BY_TITLE + " for SEARCH BOOK BY TITLE");
+        System.out.println("Plase input " + PRINT_EXPENSIVE_BOOK + " for PRINT EXPENSIVE BOOK");
+
+    }
+
 }
