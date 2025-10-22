@@ -43,4 +43,36 @@ public class BookStorage {
         }
         return books[maxIndex];
     }
+
+    public void deleteBookById(int id) {
+        for (int i = 0; i < size; i++) {
+            if (books[i].getId() == id) {
+                for (int j = 0; j < size - 1; j++) {
+                    books[j] = books[j + 1];
+                }
+                books[--size] = null;
+                System.out.println("Book with ID " + id + " was deleted");
+                return;
+
+            }
+        }
+        System.out.println("Not thid Id");
+    }
+
+    public void searchByPriceRange(double min, double max) {
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            if (books[i].getPrice() >= min && books[i].getPrice() <= max) {
+                System.out.println(books[i]);
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("this range no Books");
+
+        }
+
+    }
+
+
 }
