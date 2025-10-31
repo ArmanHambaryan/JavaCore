@@ -25,12 +25,12 @@ public class EmployeeDemo implements Commands {
                 case SEARCH_EMPLOYEE_BY_ID:
                     System.out.println("please input id");
                     String id = scanner.nextLine();
-                    employeeStorage.SearchEmployeeByID(id);
+                    employeeStorage.searchEmployeeByID(id);
                     break;
                 case SEARCH_EMPLOYEE_BY_COMPANY:
                     System.out.println("please input company");
                     String company = scanner.nextLine();
-                    employeeStorage.SearchEmployeeByCompany(company);
+                    employeeStorage.searchEmployeeByCompany(company);
                     break;
                 default:
                     System.out.println("Wrong command! try again");
