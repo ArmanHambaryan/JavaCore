@@ -2,14 +2,8 @@ package homework.employee;
 
 import java.util.Scanner;
 
-import static homework.employee.Commands.ADD_EMPLOYEE;
-import static homework.employee.Commands.EXIT;
-import static homework.employee.Commands.PRINT_ALL_EMPLOYEE;
-import static homework.employee.Commands.SEARCH_EMPLOYEE_BY_COMPANY;
-import static homework.employee.Commands.SEARCH_EMPLOYEE_BY_ID;
 
-
-public class EmployeeDemo {
+public class EmployeeDemo implements Commands {
     private static Scanner scanner = new Scanner(System.in);
     private static EmployeeStorage employeeStorage = new EmployeeStorage();
 

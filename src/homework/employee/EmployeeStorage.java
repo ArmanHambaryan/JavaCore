@@ -24,7 +24,7 @@ public class EmployeeStorage {
         }
     }
 
-    public void SearchEmployeeByID(String id) {
+    public void searchEmployeeByID(String id) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
             if (employees[i].getEmployeID().equals(id)) {
@@ -39,7 +39,7 @@ public class EmployeeStorage {
 
     }
 
-    public void SearchEmployeeByCompany(String company) {
+    public void searchEmployeeByCompany(String company) {
         boolean found = false;
         for (int i = 0; i < size; i++) {
             if (employees[i].getCompany().equals(company)) {
