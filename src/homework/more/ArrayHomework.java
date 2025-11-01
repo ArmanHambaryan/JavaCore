@@ -1,4 +1,4 @@
-package homework;
+package homework.more;
 
 public class ArrayHomework {
     public static void main(String[] args) {
