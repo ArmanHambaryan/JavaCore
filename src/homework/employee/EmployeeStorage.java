@@ -1,5 +1,7 @@
 package homework.employee;
 
+import homework.employee.exception.ThisIDNotEmployeeException;
+
 public class EmployeeStorage {
     private Employee[] employees = new Employee[10];
     private int size = 0;
@@ -24,20 +26,30 @@ public class EmployeeStorage {
         }
     }
 
-    public void searchEmployeeByID(String id) {
-        boolean found = false;
+    //    public void searchEmployeeByID(String id) {
+//        boolean found = false;
+//        for (int i = 0; i < size; i++) {
+//            if (employees[i].getEmployeID().equals(id)) {
+//                System.out.println(employees[i]);
+//                found = true;
+//            }
+//        }
+//        if (!found) {
+//            System.out.println("Not with" + id + "not Employee");
+//        }
+//
+//
+//    }
+    public void searchEmployeeByID(String id) throws ThisIDNotEmployeeException {
         for (int i = 0; i < size; i++) {
             if (employees[i].getEmployeID().equals(id)) {
                 System.out.println(employees[i]);
-                found = true;
+                return;
             }
         }
-        if (!found) {
-            System.out.println("Not with" + id + "not Employee");
-        }
-
-
+        throw new ThisIDNotEmployeeException("this id " + id + " not employee ");
     }
+
 
     public void searchEmployeeByCompany(String company) {
         boolean found = false;

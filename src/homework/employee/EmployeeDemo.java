@@ -1,5 +1,7 @@
 package homework.employee;
 
+import homework.employee.exception.ThisIDNotEmployeeException;
+
 import java.util.Scanner;
 
 
@@ -25,7 +27,11 @@ public class EmployeeDemo implements Commands {
                 case SEARCH_EMPLOYEE_BY_ID:
                     System.out.println("please input id");
                     String id = scanner.nextLine();
-                    employeeStorage.searchEmployeeByID(id);
+                    try {
+                        employeeStorage.searchEmployeeByID(id);
+                    } catch (ThisIDNotEmployeeException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case SEARCH_EMPLOYEE_BY_COMPANY:
                     System.out.println("please input company");
