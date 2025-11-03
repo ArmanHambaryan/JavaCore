@@ -1,6 +1,6 @@
 package homework.employee;
 
-import homework.employee.exception.ThisIDNotEmployeeException;
+import homework.employee.exception.EmployeeNotFoundException;
 
 import java.util.Scanner;
 
@@ -29,7 +29,7 @@ public class EmployeeDemo implements Commands {
                     String id = scanner.nextLine();
                     try {
                         employeeStorage.searchEmployeeByID(id);
-                    } catch (ThisIDNotEmployeeException e) {
+                    } catch (EmployeeNotFoundException e) {
                         System.out.println(e.getMessage());
                     }
                     break;

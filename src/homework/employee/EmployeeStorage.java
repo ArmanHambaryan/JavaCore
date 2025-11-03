@@ -1,6 +1,6 @@
 package homework.employee;
 
-import homework.employee.exception.ThisIDNotEmployeeException;
+import homework.employee.exception.EmployeeNotFoundException;
 
 public class EmployeeStorage {
     private Employee[] employees = new Employee[10];
@@ -27,14 +27,14 @@ public class EmployeeStorage {
     }
 
 
-    public void searchEmployeeByID(String id) throws ThisIDNotEmployeeException {
+    public void searchEmployeeByID(String id) throws EmployeeNotFoundException {
         for (int i = 0; i < size; i++) {
             if (employees[i].getEmployeID().equals(id)) {
                 System.out.println(employees[i]);
                 return;
             }
         }
-        throw new ThisIDNotEmployeeException("this id " + id + " not employee ");
+        throw new EmployeeNotFoundException("this id " + id + " not employee ");
     }
 
 
@@ -57,16 +57,7 @@ public class EmployeeStorage {
 
     public void searchEmployeesByPositionLevel(PositionLevel positionLevel) {
         for (int i = 0; i < size; i++) {
-            if (positionLevel == PositionLevel.JUNIOR) {
-                System.out.println(employees[i]);
-            }
-            if (positionLevel == PositionLevel.MIDDLE) {
-                System.out.println(employees[i]);
-            }
-            if (positionLevel == PositionLevel.SENIOR) {
-                System.out.println(employees[i]);
-            }
-            if (positionLevel == PositionLevel.LEAD) {
+            if (employees[i].getPositionLevel() == positionLevel) {
                 System.out.println(employees[i]);
             }
 
