@@ -26,20 +26,7 @@ public class EmployeeStorage {
         }
     }
 
-    //    public void searchEmployeeByID(String id) {
-//        boolean found = false;
-//        for (int i = 0; i < size; i++) {
-//            if (employees[i].getEmployeID().equals(id)) {
-//                System.out.println(employees[i]);
-//                found = true;
-//            }
-//        }
-//        if (!found) {
-//            System.out.println("Not with" + id + "not Employee");
-//        }
-//
-//
-//    }
+
     public void searchEmployeeByID(String id) throws ThisIDNotEmployeeException {
         for (int i = 0; i < size; i++) {
             if (employees[i].getEmployeID().equals(id)) {
@@ -68,4 +55,24 @@ public class EmployeeStorage {
 
     }
 
+    public void searchEmployeesByPositionLevel(PositionLevel positionLevel) {
+        for (int i = 0; i < size; i++) {
+            if (positionLevel == PositionLevel.JUNIOR) {
+                System.out.println(employees[i]);
+            }
+            if (positionLevel == PositionLevel.MIDDLE) {
+                System.out.println(employees[i]);
+            }
+            if (positionLevel == PositionLevel.SENIOR) {
+                System.out.println(employees[i]);
+            }
+            if (positionLevel == PositionLevel.LEAD) {
+                System.out.println(employees[i]);
+            }
+
+        }
+    }
+
 }
+
+

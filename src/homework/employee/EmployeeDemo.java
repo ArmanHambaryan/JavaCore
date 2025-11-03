@@ -38,6 +38,13 @@ public class EmployeeDemo implements Commands {
                     String company = scanner.nextLine();
                     employeeStorage.searchEmployeeByCompany(company);
                     break;
+                case SEARCH_EMPLOYEES_BY_POSTION_LEVEL:
+                    System.out.println("please input Position Level");
+                    allEmployeePositionLevels();
+                    String positionlevel = scanner.nextLine();
+                    PositionLevel positionLevel = PositionLevel.valueOf(positionlevel.toUpperCase());
+                    employeeStorage.searchEmployeesByPositionLevel(positionLevel);
+                    break;
                 default:
                     System.out.println("Wrong command! try again");
 
@@ -45,6 +52,14 @@ public class EmployeeDemo implements Commands {
             }
         }
 
+
+    }
+
+    private static void allEmployeePositionLevels() {
+        PositionLevel[] values = PositionLevel.values();
+        for (PositionLevel value : values) {
+            System.out.println(value + " ");
+        }
 
     }
 
@@ -61,7 +76,11 @@ public class EmployeeDemo implements Commands {
         String company = scanner.nextLine();
         System.out.println("please input Employee position ");
         String position = scanner.nextLine();
-        Employee employee = new Employee(name, surname, employeeid, salary, company, position);
+        allEmployeePositionLevels();
+        System.out.println("please choose Employee position level");
+        String level = scanner.nextLine();
+        PositionLevel positionLevel = PositionLevel.valueOf(level.toUpperCase());
+        Employee employee = new Employee(name, surname, employeeid, salary, company, position, positionLevel);
         employeeStorage.add(employee);
         System.out.println("Employee added successfully ");
 
