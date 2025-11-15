@@ -1,11 +1,14 @@
 package homework.medicalCenter;
 
+import homework.medicalCenter.util.FileUtil;
+
+import java.util.Date;
 import java.util.Scanner;
 
 public class MedicalCenterDemo implements Commands {
     private static Scanner scanner = new Scanner(System.in);
-    private static PatientStorage patientStorage = new PatientStorage();
-    private static DoctorStorage doctorStorage = new DoctorStorage();
+    private static PatientStorage patientStorage = FileUtil.deserializePatientStorage();
+    private static DoctorStorage doctorStorage = FileUtil.deserializeDoctorStorage();
 
     public static void main(String[] args) {
         boolean found = true;
@@ -18,6 +21,7 @@ public class MedicalCenterDemo implements Commands {
                     break;
                 case ADD_DOCTOR:
                     addDoctor();
+                    FileUtil.serializeDoctorData(doctorStorage);
                     break;
                 case SEARCH_DOCTOR_BY_PROFESSION:
                     System.out.println("please input doctor profession");
@@ -36,6 +40,7 @@ public class MedicalCenterDemo implements Commands {
                     break;
                 case ADD_PATIENT:
                     addpatient();
+                    FileUtil.serializePatientData(patientStorage);
                     break;
                 case PRINT_ALL_PATIENTS_BY_DOCTOR:
                     System.out.println("please input doctor ");
@@ -71,7 +76,8 @@ public class MedicalCenterDemo implements Commands {
         String phone = scanner.nextLine();
         System.out.println("please input patient registerDateTime");
         String registerDateTime = scanner.nextLine();
-        Patient patient = new Patient(id, name, surname, phone, doctor, registerDateTime);
+
+        Patient patient = new Patient(id, name, surname, phone, doctor, registerDateTime, new Date());
         patientStorage.add(patient);
         System.out.println("Patient added successfully");
 

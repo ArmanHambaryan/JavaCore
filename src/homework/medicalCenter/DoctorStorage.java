@@ -1,9 +1,10 @@
 package homework.medicalCenter;
 
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class DoctorStorage {
+public class DoctorStorage implements Serializable {
     Scanner scanner = new Scanner(System.in);
     private Doctor[] doctors = new Doctor[10];
     private int size = 0;

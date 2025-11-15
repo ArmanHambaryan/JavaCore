@@ -1,8 +1,12 @@
 package homework.medicalCenter;
 
+import homework.medicalCenter.util.DateUtil;
+
+import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
-public class Patient {
+public class Patient implements Serializable {
 
     private String id;
     private String name;
@@ -10,17 +14,19 @@ public class Patient {
     private String phone;
     private String doctor;
     private String registerDateTime;
+    private Date createdDate;
 
     public Patient() {
     }
 
-    public Patient(String id, String name, String surname, String phone, String doctor, String registerDateTime) {
+    public Patient(String id, String name, String phone, String surname, String doctor, String registerDateTime, Date createdDate) {
         this.id = id;
         this.name = name;
-        this.surname = surname;
         this.phone = phone;
+        this.surname = surname;
         this.doctor = doctor;
         this.registerDateTime = registerDateTime;
+        this.createdDate = createdDate;
     }
 
     public String getId() {
@@ -71,16 +77,24 @@ public class Patient {
         this.registerDateTime = registerDateTime;
     }
 
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Patient patient = (Patient) o;
-        return Objects.equals(id, patient.id) && Objects.equals(name, patient.name) && Objects.equals(surname, patient.surname) && Objects.equals(phone, patient.phone) && Objects.equals(doctor, patient.doctor) && Objects.equals(registerDateTime, patient.registerDateTime);
+        return Objects.equals(id, patient.id) && Objects.equals(name, patient.name) && Objects.equals(surname, patient.surname) && Objects.equals(phone, patient.phone) && Objects.equals(doctor, patient.doctor) && Objects.equals(registerDateTime, patient.registerDateTime) && Objects.equals(createdDate, patient.createdDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, phone, doctor, registerDateTime);
+        return Objects.hash(id, name, surname, phone, doctor, registerDateTime, createdDate);
     }
 
     @Override
@@ -92,6 +106,9 @@ public class Patient {
                 ", phone='" + phone + '\'' +
                 ", doctor='" + doctor + '\'' +
                 ", registerDateTime='" + registerDateTime + '\'' +
+                ", createdDate=" + DateUtil.fromDateToStr(createdDate) +
                 '}';
     }
 }
+
+
